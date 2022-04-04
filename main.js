@@ -1,8 +1,8 @@
 let bnt = document.querySelectorAll("button")
 bnt.forEach(function(button){
     button.addEventListener("click",function() {
-        event.target
-        var product = this.parentElement
+        event.target // them su kien
+        var product = this.parentElement // lay cha cua button
         var productImg = product.querySelector("img").src
         var productPrice = product.querySelector("span").innerHTML
         var productName = product.querySelector("h1").innerHTML
@@ -11,11 +11,47 @@ bnt.forEach(function(button){
 })
 function addcart(productImg,productPrice,productName) {
     var addtr = document.createElement("tr")
-    var trcontent = ' <td style="display: flex; align-items: center;"><img style="width: 80px;" src="'+productImg+'"alt=""><span>'+productName+'</span></td><td><p><span>'+productPrice+'</span><sup>đ</sup></p></td><td><input style="width: 50px;" type="number" value="1" min="0"></td><td><button onclick="del1()">Xóa</button></td>'
+    var trcontent = ' <td style="display: flex; align-items: center;"><img style="width: 80px;" src="'+productImg+'"alt=""><span>'+productName+'</span></td><td><p><span id="pr">'+productPrice+'</span><sup>đ</sup></p></td><td><input style="width: 50px;" type="number" value="1" min="0"></td><td><button onclick="del1()">Xóa</button></td><td id="toltal"></td>'
     addtr.innerHTML = trcontent
     var carTable = document.querySelector("tbody")
-    carTable.append(addtr)
+    var nameCart = carTable.querySelector("span")
+    // console.log(nameCart)
+    // neu PriductName giong nhau thi input cua value do tang 1 
+// if (productName === nameCart) {
+//     addInput(productName,carTable) // sua ly value
+// } else {
+    
+// }
+carTable.append(addtr)
+    
+    carttotal() // goi den tong
+
 }
+function carttotal() {
+    var cartItem = document.querySelectorAll(".table-body tr")
+    var total = 0
+    for(var i = 0; i < cartItem.length; i++) {
+        let price = cartItem[i].querySelector("#pr").innerHTML
+        let valueInput = cartItem[i].querySelector("input").value
+    //   console.log(valueInput)
+total += price*valueInput
+    }
+    total // tong
+    var toltalTable = document.querySelector("#toltal")
+    var tableTd = document.createElement("td")
+    toltalTable.innerHTML = ""
+    tableTd.innerHTML = total + ".000"
+    toltalTable.append(tableTd)
+    // console.log(tableTd)
+    
+}
+// su ly input
+// function addInput(name,table) {
+    
+// if (name == "IphoneX" ) {
+// console.log(table)
+// }
+// }
 // let productImg = document.querySelectorAll(".product-item img")
 // let productPrice = document.querySelectorAll(".product-item-text span")
 // // console.log(productPrice)
