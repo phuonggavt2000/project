@@ -1,7 +1,9 @@
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    
 
 }
 html {
@@ -19,7 +21,7 @@ html {
 .product-items {
     display: flex;
     justify-content: space-between;
-    background-color: #ddd;
+    background-color:orange;
     padding: 12px;
    
 }
@@ -47,8 +49,9 @@ html {
     background-color: orangered;
     transition: all 0.3s ease;
 }
+
 .product-item button:hover {
-    background-color: rgb(219, 58, 0);
+    background-color: rgb(219, 0, 0);
 }
 .body-tr td img {
     width: 80px;
@@ -63,10 +66,96 @@ html {
 .cart table {
     width: 100%;
 }
-.cart table thead tr th:first-child {
+.cart table thead tr th {
     text-align: left;
+    font-size: 1.5rem;
 }
 .cart table tr td {
     border-bottom: 1px solid #fff;
     padding: 12px 0;
 }
+
+.heading {
+    padding: 15px;
+    width: 100%;
+    display: flex;
+    background: rgb(245, 72, 9);
+    border-radius: 5px;
+    border: yellow;
+}
+li {
+    list-style: none;
+}
+
+.heading-contain ul  {
+    display: flex;
+}
+.heading-contain ul li:first-child{
+    text-decoration: none;
+    color: white;
+    text-transform: uppercase;
+    padding: 0 0 0 20px
+    
+}
+.heading-contain ul li:last-child {
+    text-decoration: none;
+    color: white;
+    text-transform: uppercase;
+    padding: 0 0 0 20px
+    
+}
+
+.heading-contain ul li a {
+    text-decoration: none;
+    color: white;
+    /* background-color: orangered; */
+    font-size: 19px;
+    text-transform: uppercase;
+}
+.heading-contain ul li a:hover {
+  color: yellow;
+}
+.contain-add {
+    height: auto;
+    width: 50px;
+}
+.contain-add button {
+    margin-top: 12px;
+    height: 30px;
+    padding: 0 12px;
+    cursor: pointer;
+    border: none;
+    border-radius: 6px;
+    background-color: orangered;
+    transition: all 0.3s ease;
+}
+.contain-add button:hover {
+    background-color: rgb(219, 44, 0);
+}
+.toltal {
+    font-size: 1.5rem ;
+}
+.form { 
+      width: 200px;
+      background: yellow;
+      font: inherit;
+      box-shadow: 0 6px 10px 0 rgba(0, 0, 0, 0.1);
+      border: 0;
+      outline: 0;
+      padding: 22px 18px;
+    
+  }
+.contain-add {
+    padding: 20px;
+}
+.button {
+    margin-top: 12px;
+    height: 30px;
+    padding: 0 12px;
+    cursor: pointer;
+    border: none;
+    border-radius: 6px;
+    background-color: orangered;
+    transition: all 0.3s ease;
+}
+

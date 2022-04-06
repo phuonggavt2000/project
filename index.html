@@ -10,38 +10,46 @@
 </head>
 
 <body>
+    <section class="heading">
+        <div class="heading-contain">
+            <ul>
+                <li><a href="#">Trang chủ</a></li>
+            </ul>
+        </div>
+    </section>
     <section class="product">
         <!-- <div class="contain"> -->
         <div class="product-items">
             <div class="product-item">
                 <img src="./img/1.jpg" alt="">
                 <!-- span có thể tô màu theo chữ mình muốn -->
-                <p><span>300.000</span><sup>đ</sup></p>
-                <h1>IphoneX</h1>
+                <p><span>20.000</span><sup>đ</sup></p>
+                <h1>Rolex 4.0</h1>
                 <button> Thêm giỏ hàng </button>
             </div>
             <div class="product-item">
                 <img src="./img/2.jpg" alt="">
-                <p><span>400.000</span><sup>đ</sup></p>
-                <h1>Reno 6Z</h1>
+                <p><span>10.000</span><sup>đ</sup></p>
+                <h1>Omega 7Z</h1>
                 <button>Thêm giỏ hàng</button>
             </div>
+            
             <div class="product-item">
                 <img src="./img/3.jpg" alt="">
-                <p><span>500.000</span><sup>đ</sup></p>
-                <h1>Samsung</h1>
+                <p><span>30.000</span><sup>đ</sup></p>
+                <h1>Hublot 2.1</h1>
                 <button>Thêm giỏ hàng</button>
             </div>
             <div class="product-item">
                 <img src="./img/4.jpg" alt="">
-                <p><span>600.000</span><sup>đ</sup></p>
-                <h1>Xiaomi</h1>
+                <p><span>30.000</span><sup>đ</sup></p>
+                <h1>Chopard 1.8</h1>
                 <button>Thêm giỏ hàng</button>
             </div>
             <div class="product-item">
                 <img src="./img/5.jpg" alt="">
-                <p><span>700.000</span><sup>đ</sup></p>
-                <h1>Oppo</h1>
+                <p><span>15.000</span><sup>đ</sup></p>
+                <h1>Richemont 4I</h1>
                 <button>Thêm giỏ hàng</button>
             </div>
         </div>
@@ -51,11 +59,11 @@
         <table class="product-table">
             <thead class="table-head">
                 <tr class="head-tr">
-                    <th>Sản phẩn</th>
+                    <th>Sản phẩm</th>
                     <th>Giá</th>
                     <th>SL</th>
                     <th>Chọn</th>
-                    <th>Tổng</th>
+                    <td class="toltal">Tổng</td>
                 </tr>
             </thead>
             <tbody class="table-body">
@@ -66,9 +74,20 @@
                 </td>
                 <td><input style="width: 50px;" type="number" value="1" min="0"></td>
                 <td><button onclick="del1()">Xóa</button></td> -->
+                
             </tbody>
+            
+            
         </table>
         <!-- </form> -->
+    </section>
+    <section class="add-product">
+        <div class="contain-add">
+            <input type="text" class="form" id="img" placeholder="Nhập vào URL sản phẩm"><br>
+            <input type="text" class="form" id="name" placeholder="Nhập vào Tên sản phẩm"><br>
+            <input type="text" class="form" id="price" placeholder="Nhập vào giá sản phẩm"><br>
+            <button onclick="add()">Click</button>
+        </div>
     </section>
     <script src="main.js"></script>
 </body>
