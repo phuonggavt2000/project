@@ -1,34 +1,55 @@
+let arrName = Array()
+let arrName1 = Array()
 function getElement() {
     let bnt = document.querySelectorAll(".product-items button")
     bnt.forEach(function (button) {
         button.addEventListener("click", function () {
-            this.target // them su kien
+            this.target // lay chinh no khi bam vao
             let product = this.parentElement // lay cha cua button
             let productImg = product.querySelector("img").src
             let productPrice = product.querySelector("span").innerHTML
             let productName = product.querySelector("h1").innerHTML
-            addcart(productImg, productPrice, productName)
-            console.log(product.parentElement)
+            let carTable = document.querySelector("tbody")
+            addItem(productImg, productPrice, productName, carTable)
+            // console.log(product.parentElement)
         })
     })
 }
 
 getElement()
 
-function addcart(productImg, productPrice, productName) {
+function addItem(productImg, productPrice, productName, carTable) {
     let addtr = document.createElement("tr")
-    let trcontent = ' <td style="display: flex; align-items: center;"><img style="width: 80px;" src="' + productImg + '"alt=""><span class="same">' + productName + '</span></td><td><p><span id="pr">' + productPrice + '</span><sup>đ</sup></p></td><td><input style="width: 50px;" type="number" value="1" min="0"></td><td><button>Xóa</button class="button"></td><td id="toltal"></td>'
-    addtr.innerHTML = trcontent // thêm sản phẩm vào thẻ tr
-    let carTable = document.querySelector("tbody")
-    carTable.append(addtr)
-    let buttonCss = carTable.querySelector("tr:last-child button")
-    buttonCss.className = "button"
-    carttotal() // goi den tong
-    deleteproduct()
+    let trTable = carTable.querySelectorAll("tr")
+    for (i = 0; i < trTable.length; i++) {
+        let same = trTable[i].querySelector(".same")
+        if (same.innerHTML === productName) {
+            let getInput = same.parentElement.parentElement.querySelector("input")
+            let getValue = getInput.value
+            let totalValue = 0
+            let x = parseInt(getValue)
+            totalValue = x + 1
+            // getValue.innerHTML = totalValue
+            getInput.parentElement.innerHTML = '<input style="width: 50px;" type="number" value="' + totalValue + '" min="0">'
+            console.log(getInput.parentElement)
+            totalItem(carTable)
+            return
+        }
 
+    }
+    let trcontent = ' <td  style="display: flex; align-items: center;"><img style="width: 80px;" src="' + productImg + '"alt=""><span class="same">' + productName + '</span></td><td><p><span id="pr">' + productPrice + '</span><sup>đ</sup></p></td><td><input style="width: 50px;" type="number" value="1" min="0"></td><td><button>Xóa</button class="button"></td><td id="toltal"></td>'
+    addtr.innerHTML = trcontent // thêm sản phẩm vào thẻ tr
+    carTable.append(addtr)
+    // arrName.push(trTable)
+    // console.log(arrName)
+    let buttonCss = carTable.querySelector("tr:last-child button ")
+    buttonCss.className = "button" // them class de CSS
+    // goi den tong
+    deleteproduct()
+    totalItem(carTable)
 }
 
-function carttotal(carTable) {
+function totalItem(carTable) {
     let cartItem = document.querySelectorAll(".table-body tr")
     let total = 0
     for (let i = 0; i < cartItem.length; i++) {
@@ -38,12 +59,12 @@ function carttotal(carTable) {
         total += price * valueInput
     }
     total // tong
-    let addToltal = document.querySelector("table  tr td")
+    let addTotal = document.querySelector("table  tr td")
     let span = document.createElement("span")
-    addToltal.innerHTML = ""
+    addTotal.innerHTML = ""
     span.innerHTML = "Tổng:   " + total + ".000" + "đ"
-    addToltal.append(span)
-    let spanClass = addToltal.querySelector("span")
+    addTotal.append(span)
+    let spanClass = addTotal.querySelector("span")
     spanClass.className = "toltal"
     // console.log(spanClass)    
 }
@@ -55,13 +76,13 @@ function deleteproduct() {
             this.target
             let parenDel = this.parentElement.parentElement
             parenDel.remove()
-            carttotal()
+            totalItem()
         }
         )
     }
 }
-
-function add() {
+// thêm sản phẩm mới
+function addNewitem() {
     let addImg = document.querySelector(".contain-add #img").value
     let addPrice = document.querySelector(".contain-add #price").value
     let addName = document.querySelector(".contain-add #name").value
@@ -81,4 +102,5 @@ function add() {
         getElement()
     }
 }
+
 

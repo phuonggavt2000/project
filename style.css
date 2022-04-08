@@ -77,7 +77,7 @@ html {
 .cart {
     width: 50%;
     float: left;
-    background-color: whitesmoke;
+    background-color: white;
     border:1px solid #333;
     border-radius: 10px;
 }
